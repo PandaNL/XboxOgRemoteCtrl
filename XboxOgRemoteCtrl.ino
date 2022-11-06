@@ -13,7 +13,8 @@ ESP8266WebServer server(80);
 WiFiManager wifiManager;
 
 void setup() {
-  
+  digitalWrite(PIN_DRIVE, HIGH);
+  digitalWrite(PIN_XBOX, HIGH);
   pinMode(PIN_XBOX, OUTPUT);
   pinMode(PIN_DRIVE, OUTPUT);
 
@@ -54,9 +55,9 @@ void _onHttpDriveToggle() {
 }
 
 void driveToggle() {
-  digitalWrite(PIN_DRIVE, HIGH);
-  delay(500);
   digitalWrite(PIN_DRIVE, LOW);
+  delay(200);
+  digitalWrite(PIN_DRIVE, HIGH);
 }
 
 void _onHttpXboxToggle() {
@@ -66,6 +67,6 @@ void _onHttpXboxToggle() {
 
 void xboxToggle() {
   digitalWrite(PIN_XBOX, LOW);
-  delay(500);
+  delay(200);
   digitalWrite(PIN_XBOX, HIGH);
 }
